@@ -16,6 +16,31 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
+
+resource "aws_security_group" "gross" {
+  name        = "${var.project_name}-sg"
+  description = "Security group for GROSS experiment"
+  
+  # The VPC ID to use existing security group. 
+  # vpc_id      = var.vpc_id
+
+
+  tags = {
+    Name = "${var.project_name}-sg"
+  }
+}
+
+# Allow outbound traffic so Docker and the CloudWatch Agent can access AWS APIs
+# an d package repositories.
+resource "aws_vpc_security_group_egress_rule" "gross_ipv4" {
+  security_group_id = aws_security_group.gross.id
+  description       = "Allow outbound IPv4 traffic"
+
+  ip_protocol = "-1"
+  cidr_ipv4   = "0.0.0.0/0"
+}
+
+
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.19.0"
@@ -28,10 +53,11 @@ module "vpc" {
   public_subnets  = ["10.0.101.0/24"]
 
   enable_dns_hostnames    = true
+  enable_dns_support      = true
 }
 
 
-/*
+# /*
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
@@ -44,5 +70,5 @@ resource "aws_instance" "app_server" {
     Name = var.instance_name
   }
 }
-*/
+# */
 
