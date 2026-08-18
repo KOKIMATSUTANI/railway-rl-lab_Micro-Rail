@@ -20,7 +20,7 @@ variable "az_count" {
 variable "project_name" {
   type        = string
   description = "Resource name prefix"
-  default     = "gross-experiment"
+  default     = "gross-experiment"  #(when destroying VPC and security group)
 }
 
 variable "experiment_name" {
@@ -29,7 +29,9 @@ variable "experiment_name" {
   default     = "dresden"
 }
 
+/*
 variable "vpc_id" {
   type        = string
   description = "VPC ID"
 }
+*/
