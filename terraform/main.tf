@@ -16,7 +16,7 @@ data "aws_availability_zones" "available" {
   state = "available"
 }
 
-/* (for destroy VPC and security group ) 
+# /* (for destroy VPC and security group ) 
 resource "aws_security_group" "gross" {
   name        = "${var.project_name}-sg"
   description = "Security group for GROSS experiment"
@@ -56,19 +56,13 @@ module "vpc" {
   enable_dns_hostnames    = true
   enable_dns_support      = true
 }
-# (for destroy VPC and security group )*/
+# */ # (for destroy VPC and security group )
 
 /* (for destroy EC2 instance)
 resource "aws_instance" "app_server" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance_type
   
-  # /* (for destroy VPC)
-  vpc_security_group_ids = [module.vpc.default_security_group_id]
-  subnet_id              = module.vpc.public_subnets[0]
-  # (for destroy VPC)  */
-
-/* (for destroy EC2 instance) 
   root_block_device {
     volume_size           = 30       # Storage (GiB)
     volume_type           = "gp3"    # Volume type (gp3, io1, io2, sc1, st1, standard)
@@ -85,6 +79,12 @@ resource "aws_instance" "app_server" {
   tags = {
     Name = var.instance_name
   }
-}
-# (for destroy EC2 instance) */
+
+  /* (for destroy VPC)
+  vpc_security_group_ids = [module.vpc.default_security_group_id]
+  subnet_id              = module.vpc.public_subnets[0]
+  */ # (for destroy VPC) 
+
+} 
+*/ # (for destroy EC2 instance) 
 
