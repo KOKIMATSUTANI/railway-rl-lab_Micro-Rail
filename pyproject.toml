@@ -32,4 +32,5 @@ dependencies = [
 [dependency-groups]
 dev = [
     "pydeps>=3.0.6",
+    "pytest>=9.1.1",
 ]
