@@ -131,3 +131,5 @@ Thumbs.db
 # before excution 
 src/working/*
 src/working/
+tests/src/unit/working/*
+tests/src/unit/working/conftest.py
