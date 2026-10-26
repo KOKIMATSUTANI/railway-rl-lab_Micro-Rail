@@ -6,6 +6,15 @@
 - Run Python commands with `uv run`.
 - Add or remove dependencies with `uv add` or `uv remove`; do not edit dependency declarations manually.
 
+## Testing First
+Always write tests before implementing features.
+Write one test → implement → verify.
+
+## SUMO Tools
+SUMO tools are configured in $SUMO_HOME.
+Reference tools via $SUMO_HOME/bin/ paths.
+Environment variable is already set.
+
 ## Validation
 
 After changing code:
@@ -18,13 +27,6 @@ After changing code:
    - checks not run, with the reason.
 
 Do not state or imply that a change is verified unless the applicable checks passed.
-
-## Data
-
-- Treat files under `data/raw/` as immutable source data.
-- Do not delete or overwrite GTFS, GTFS-RT, OSM, or SUMO source data.
-- Do not commit large datasets, generated models, logs, or simulation outputs.
-- Preserve raw GTFS-RT protobuf files before creating derived data.
 
 ## AWS and Terraform
 
