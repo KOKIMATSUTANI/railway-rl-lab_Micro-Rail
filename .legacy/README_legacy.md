@@ -209,3 +209,54 @@ into a unified experimental research framework.
 - [ ] Railway environment
 - [ ] Replay buffer
 - [ ] DDQN training
+
+
+# 2026.Oct.26 added 
+
+```text 
+# Current Status (after integrating GROSS/now updateing) 
+## 1. Infrastructure Data Download (OSM)
+## 2. Timetable Date Download (GTFS) 
+## 3. Graph Network design (GNN)
+### 3.1. Designing OSM and GTFS Combined Network on SUMO (GROSS)
+### 3.2. extracting signal and switch data and depict on SUMO
+### 3.3. inferring Track Circuit based on Ril 420
+## 4. Define Trip and Route based on GTFS in Graph
+
+## 5. 
+## 6. 
+
+# Current Status (before integrating GROSS/legacy)
+## 1. Infrastructure Modeling
+- [x] Overpass query development for the Dresden railway network
+- [x] GeoJSON-based railway data validation
+- [x] Automated OpenStreetMap data acquisition via Overpass API
+- [x] Railway infrastructure preprocessing
+- [x] Station metadata extraction
+- [x] Signal and switch extraction
+
+## 2. Operational Data
+
+### 2.1 GTFS Static
+- [x] GTFS Static ingestion
+
+### 2.2 GTFS Realtime
+- [x] GTFS Realtime ingestion  
+- [x] Docker containerization 
+- [x] AWS Fargate deployment
+- [x] Automated GTFS-Realtime data collection with AWS (Fargate&EventBridge) 
+- [ ] Data preprocessing for generating Graph 
+
+
+## 4. Graph Construction
+- [x] Prototype graph generation (dummy data)
+- [ ] Graph generation with real railway data (PyTorch Geometric)
+
+## 5. AI Models
+- [x] Prototype reinforcement learning environment
+- [ ] GNN implementation
+- [ ] RL environment with real railway network
+- [ ] Reward function design
+- [ ] GNN + RL integration
+- [ ] Training & evaluation
+```

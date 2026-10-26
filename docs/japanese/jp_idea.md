@@ -1,3 +1,21 @@
+# ab 29.09.2026
+項目ごとにまとめる。優先順位/CS関連/Railway technical stackの3項目
+## 優先順位
+1. DISPLIBの内容と、それに基づくGNNの設計確認から
+
+## CS関連
+
+### AWS MLOps/LLMOps/XAIなど
+- MLOpsに関してはGNN+DRLが一周できてから、好奇心掻き立てられるが今は保留。
+
+## railway technical stack
+### SMA 
+- Taktfahrplanの内容・anschlussmöglichkeitを補償するときに使えるかも
+
+### DISPLIB
+- [ ] jsonファイルのスキーマ確認するところから
+
+# Previous
 ## 31.07.2026 
 ### SUMO
 WSL（開発・可視化）
